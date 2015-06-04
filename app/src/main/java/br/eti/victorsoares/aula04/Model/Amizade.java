@@ -4,22 +4,23 @@ package br.eti.victorsoares.aula04.Model;
  * Created by vsoares on 27/05/15.
  */
 public class Amizade {
-    private long idPessoa;
-    private long idUsuario;
 
-    public long getIdPessoa() {
-        return idPessoa;
+    private Pessoa pessoa;
+    private Usuario usuario;
+
+    public Pessoa getPessoa() {
+        return pessoa;
     }
 
-    public void setIdPessoa(long idPessoa) {
-        this.idPessoa = idPessoa;
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
     }
 
-    public long getIdUsuario() {
-        return idUsuario;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setIdUsuario(long idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }
