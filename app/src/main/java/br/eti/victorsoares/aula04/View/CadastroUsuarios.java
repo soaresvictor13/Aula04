@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import br.eti.victorsoares.aula04.Controller.UsuarioController;
 import br.eti.victorsoares.aula04.Model.Usuario;
 import br.eti.victorsoares.aula04.daos.UsuarioDAO;
 import br.eti.victorsoares.aula04.R;
@@ -23,6 +24,8 @@ public class CadastroUsuarios extends Activity {
 
         Button salvar = (Button) findViewById(R.id.salvar);
 
+        final UsuarioController controller = new UsuarioController(this);
+
         salvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -35,14 +38,13 @@ public class CadastroUsuarios extends Activity {
 
                 if(senha.getText().toString().equals(confirmaSenha.getText().toString()) & usuario.getText().length() > 0){
 
-                    if(!Usuario.isUsuario(view.getContext(), usuario.getText().toString())) {
+                    if(!controller.isUsuario(view.getContext(), usuario.getText().toString())) {
                         if(email.getText().toString().length() > 5){
                             Usuario u = new Usuario();
                             u.setUsuario(usuario.getText().toString());
                             u.setSenha(senha.getText().toString());
                             u.setEmail(email.getText().toString());
-                            UsuarioDAO ud = new UsuarioDAO(view.getContext());
-                            ud.insert(u);
+                            controller.insert(u);
                             Toast.makeText(view.getContext(), "Usuário salvo com sucesso!", Toast.LENGTH_SHORT).show();
                             CadastroUsuarios.this.finish();
                         }else{

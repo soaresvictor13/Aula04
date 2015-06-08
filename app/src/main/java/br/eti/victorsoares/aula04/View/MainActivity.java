@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import br.eti.victorsoares.aula04.Controller.UsuarioController;
 import br.eti.victorsoares.aula04.Model.Usuario;
 import br.eti.victorsoares.aula04.R;
 
@@ -70,8 +71,11 @@ public class MainActivity extends ActionBarActivity {
             EditText senha = (EditText) view.findViewById(R.id.senha);
             String loginD = String.valueOf(login.getText());
             String senhaD = String.valueOf(senha.getText());
+
+            UsuarioController usuarioController = new UsuarioController(this);
 ;
-            Usuario usuario = Usuario.login(this, loginD, senhaD);
+            Usuario usuario = usuarioController.login(this, loginD, senhaD);
+
             if(usuario != null){
                 //criar outra activity
                 Intent it = new Intent(this, SussessoActivity.class);

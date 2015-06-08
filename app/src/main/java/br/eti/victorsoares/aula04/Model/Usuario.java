@@ -57,29 +57,6 @@ public class Usuario extends Pessoa implements Serializable {
         super.setId(id);
     }
 
-    public static Usuario login(Context context, String usuario, String senha){
-        try {
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            senha = new String(md.digest(senha.getBytes()));
-            UsuarioDAO uDAO = new UsuarioDAO(context);
-            Usuario u = (Usuario) uDAO.login(usuario, senha);
-            return u;
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    public static boolean isUsuario(Context context, String usuario){
-
-        UsuarioDAO ud = new UsuarioDAO(context);
-
-        Usuario u = (Usuario) ud.get(usuario);
-
-        if(u != null) return true;
-
-        return false;
-    }
 
 
 }
