@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
 
+import br.eti.victorsoares.aula04.Model.Pessoa;
 import br.eti.victorsoares.aula04.Model.Usuario;
 
 /**
@@ -137,4 +138,5 @@ public class UsuarioDAO{
             return null;
         }
     }
+
 }

@@ -100,4 +100,25 @@ public class PessoaDAO {
         baseDados.delete("pessoa", "_id =" + u.getId(), null);
         baseDados.close();
     }
+
+
+    public ArrayList<Object> getFriends(Usuario u) {
+
+        ArrayList<Object> list = new ArrayList<>();
+        SQLiteDatabase baseDados = acessoDB.getReadableDatabase();
+        String query = "SELECT * FROM pessoa JOIN amizade on (_id = id_pessoa) WHERE id_usuario = ? GROUP BY id_pessoa";
+        Cursor retornoBase = baseDados.rawQuery(query, new String[] { String.valueOf(u.getIdPessoa()) });
+
+        while(retornoBase.moveToFirst()) {
+            Pessoa p = new Pessoa();
+            p.setId(retornoBase.getLong(retornoBase.getColumnIndex("_id")));
+            p.setNome(retornoBase.getString((retornoBase.getColumnIndex("nome"))));
+            p.setEmail(retornoBase.getString(retornoBase.getColumnIndex("email")));
+            p.setTelefone(retornoBase.getString(retornoBase.getColumnIndex("telefone")));
+            list.add(p);
+        }
+
+        baseDados.close();
+        return list;
+    }
 }
