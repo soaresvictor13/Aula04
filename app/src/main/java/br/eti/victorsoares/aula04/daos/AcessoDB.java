@@ -13,7 +13,7 @@ import br.eti.victorsoares.aula04.daos.UsuarioDAO;
  */
 public class AcessoDB extends SQLiteOpenHelper {
 
-	private static final int DATABASE_VERSION = 2;
+	private static final int DATABASE_VERSION = 3;
 	private static final String DATABASE_NAME = "trabalhoCM";
 	
 	
@@ -31,6 +31,7 @@ public class AcessoDB extends SQLiteOpenHelper {
         db.execSQL(PessoaDAO.SCRIPT_CREATE);
         db.execSQL(CategoriaDAO.SCRIPT_CREATE);
         db.execSQL(ItemDAO.SCRIPT_CREATE);
+        db.execSQL(AmizadeDAO.SCRIPT_CREATE);
         //fim criação de tabelas
 
 	}
@@ -40,17 +41,18 @@ public class AcessoDB extends SQLiteOpenHelper {
 		Log.v("AcessoDB", "Estou atualizando banco de dados :)");
 
 
-        db.execSQL(CategoriaDAO.SCRIPT_CREATE);
-        db.execSQL(ItemDAO.SCRIPT_CREATE);
 //        db.execSQL("DELETE FROM historico_comandos");
 
-        /*if(versaoAnterior == 2 && versaoRecente == 3) {
-			String queryAtualizacao = "ALTER TABLE Tarefas ADD COLUMN descricao TEXT;";
-			db.execSQL(queryAtualizacao);
-		} else if(versaoAnterior == 3 && versaoRecente == 4) {
-			db.execSQL("DROP TABLE Tarefas;");
-			db.execSQL(TarefasDAL.SCRIPT_CREATE);
-		}*/
+        if(versaoAnterior == 1 && versaoRecente == 2){
+            db.execSQL(CategoriaDAO.SCRIPT_CREATE);
+            db.execSQL(ItemDAO.SCRIPT_CREATE);
+        }else if(versaoAnterior == 2 && versaoRecente == 3) {
+            db.execSQL(AmizadeDAO.SCRIPT_CREATE);
+        }else if(versaoAnterior == 3 && versaoRecente == 4){
+
+        }
+
+
 	}
 
 }
