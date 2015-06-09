@@ -49,6 +49,7 @@ public class AcessoDB extends SQLiteOpenHelper {
         }else if(versaoAnterior == 2 && versaoRecente == 3) {
             db.execSQL(AmizadeDAO.SCRIPT_CREATE);
         }else if(versaoAnterior == 3 && versaoRecente == 4){
+            db.execSQL("");
 
         }
 

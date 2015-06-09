@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -28,7 +29,7 @@ public class PessoaDAO {
     }
 
     public void insert(Object obj) {
-
+        Log.i("BANCO0", "Inserindo nova pessoa");
         Pessoa p = (Pessoa) obj;
         SQLiteDatabase baseDados = acessoDB.getWritableDatabase();
         ContentValues valoresInserir = new ContentValues();
@@ -39,6 +40,7 @@ public class PessoaDAO {
         p.setId(novoId);
         baseDados.close();
     }
+
 
     public ArrayList<Object> getList() {
 
@@ -106,15 +108,13 @@ public class PessoaDAO {
 
         ArrayList<Object> list = new ArrayList<>();
         SQLiteDatabase baseDados = acessoDB.getReadableDatabase();
-        String query = "SELECT * FROM pessoa JOIN amizade on (_id = id_pessoa) WHERE id_usuario = ? GROUP BY id_pessoa";
+        String query = "select * from pessoa join amizade on(_id = id_amigo) where id_usuario = ?";
         Cursor retornoBase = baseDados.rawQuery(query, new String[] { String.valueOf(u.getIdPessoa()) });
 
         while(retornoBase.moveToFirst()) {
             Pessoa p = new Pessoa();
             p.setId(retornoBase.getLong(retornoBase.getColumnIndex("_id")));
             p.setNome(retornoBase.getString((retornoBase.getColumnIndex("nome"))));
-            p.setEmail(retornoBase.getString(retornoBase.getColumnIndex("email")));
-            p.setTelefone(retornoBase.getString(retornoBase.getColumnIndex("telefone")));
             list.add(p);
         }
 

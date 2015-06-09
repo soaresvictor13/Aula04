@@ -4,22 +4,26 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="br.eti.victorsoares.aula04.View.AmigosActivity">
+    tools:context="br.eti.victorsoares.aula04.View.NovoAmigoActivity">
 
-    <ListView
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/list"
-        ></ListView>
+        android:hint="Nome"
+        android:id="@+id/nome"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:id="@+id/email"
+        android:layout_below="@id/nome"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnAmigo"
-        android:text="Novo Amigo"
-        android:layout_below="@id/list"
-        android:onClick="novoAmigo"/>
-
-
+        android:text="Salvar"
+        android:id="@+id/salvar"
+        android:layout_below="@id/email"/>
 
 </RelativeLayout>
