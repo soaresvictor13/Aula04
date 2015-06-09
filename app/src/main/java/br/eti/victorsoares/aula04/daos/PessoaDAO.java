@@ -111,11 +111,13 @@ public class PessoaDAO {
         String query = "select * from pessoa join amizade on(_id = id_amigo) where id_usuario = ?";
         Cursor retornoBase = baseDados.rawQuery(query, new String[] { String.valueOf(u.getIdPessoa()) });
 
-        while(retornoBase.moveToFirst()) {
+        while(retornoBase.moveToNext()) {
             Pessoa p = new Pessoa();
             p.setId(retornoBase.getLong(retornoBase.getColumnIndex("_id")));
             p.setNome(retornoBase.getString((retornoBase.getColumnIndex("nome"))));
             list.add(p);
+            Log.i("BANCO", "Consulta Amigos: "+ p.getId()+ " " +
+                    p.getNome());
         }
 
         baseDados.close();
