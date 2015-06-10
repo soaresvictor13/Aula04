@@ -73,7 +73,6 @@ public class MainActivity extends ActionBarActivity {
             String senhaD = String.valueOf(senha.getText());
 
             UsuarioController usuarioController = new UsuarioController(this);
-;
             Usuario usuario = usuarioController.login(this, loginD, senhaD);
 
             if(usuario != null){

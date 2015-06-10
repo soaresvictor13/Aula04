@@ -45,9 +45,8 @@ public class UsuarioController {
 
         Usuario u = (Usuario) usuarioDAO.get(usuario);
 
-        if(u != null) return true;
+        return u != null;
 
-        return false;
     }
 
     public void insert(Usuario u) {
