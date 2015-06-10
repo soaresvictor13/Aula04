@@ -29,7 +29,7 @@ public class PessoaDAO {
     }
 
     public void insert(Object obj) {
-        Log.i("BANCO0", "Inserindo nova pessoa");
+        Log.i("BANCO", "Inserindo nova pessoa");
         Pessoa p = (Pessoa) obj;
         SQLiteDatabase baseDados = acessoDB.getWritableDatabase();
         ContentValues valoresInserir = new ContentValues();

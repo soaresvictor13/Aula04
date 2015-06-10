@@ -1,7 +1,12 @@
 package br.eti.victorsoares.aula04.smldao;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
+
 import java.util.ArrayList;
 
+import br.eti.victorsoares.aula04.Model.Amigo;
 import br.eti.victorsoares.aula04.daos.AcessoDB;
 
 /**
@@ -15,12 +20,18 @@ public class AmigosDAO implements modeloDAO{
             "_cod_amigo INTEGER PRIMARY KEY AUTOINCREMENT, " +
             "FOREIGN KEY (_cod_usuario) REFERENCES Usuarios(_cod_usuario)," +
             "nome_amigo TEXT," +
-            "img_amigo BLOB";
+            "img_amigo TEXT";
 
 
     @Override
     public void insert(Object obj) {
-
+        Log.i("BANCO0", "Inserindo nova pessoa");
+        Amigo amigo = (Amigo) obj;
+        SQLiteDatabase baseDados = acessoDB.getWritableDatabase();
+        ContentValues valoresInserir = new ContentValues();
+        valoresInserir.put("nome_amigo", amigo.getNome());
+        valoresInserir.put("img_amigo", amigo.getImagem());
+        baseDados.close();
     }
 
     @Override
