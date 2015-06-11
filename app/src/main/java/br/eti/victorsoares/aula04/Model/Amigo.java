@@ -1,15 +1,26 @@
 package br.eti.victorsoares.aula04.Model;
 
-import java.sql.Blob;
-
 /**
  * Created by samuel on 10/06/15.
  */
 public class Amigo {
 
-    private Integer cod_amigo;
+    private Long cod_amigo;
     private String nome;
     private String imagem;
+    private Long cod_usuario;
+
+    public Long getCod_usuario() {
+        return cod_usuario;
+    }
+
+    public void setCod_usuario(Long cod_usuario) {
+        this.cod_usuario = cod_usuario;
+    }
+
+    public void setCod_amigo(Long cod_amigo) {
+        this.cod_amigo = cod_amigo;
+    }
 
     public String getImagem() {
         return imagem;
@@ -28,7 +39,7 @@ public class Amigo {
         this.nome = nome;
     }
 
-    public Integer getCod_amigo() {
+    public Long getCod_amigo() {
         return cod_amigo;
     }
 }
