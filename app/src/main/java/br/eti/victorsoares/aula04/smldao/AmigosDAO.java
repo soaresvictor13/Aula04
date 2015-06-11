@@ -70,6 +70,7 @@ public class AmigosDAO implements modeloDAO{
         if(retornoBase.moveToFirst()) {
             do {
                 //Recuperando valores e add a lista.
+                //
                 Amigo amigo = new Amigo();
                 amigo.setCod_amigo(retornoBase.getLong(retornoBase.getColumnIndex("_cod_amigo")));
                 amigo.setCod_usuario(retornoBase.getLong(retornoBase.getColumnIndex("_cod_usuario")));
