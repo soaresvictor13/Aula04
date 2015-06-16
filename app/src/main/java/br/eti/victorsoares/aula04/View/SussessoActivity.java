@@ -38,6 +38,21 @@ public class SussessoActivity extends Activity {
             public void onClick(View view) {
                 Intent it = new Intent(view.getContext(), ItemActivity.class);
                 it.putExtra("usuario", usuario);
+                Bundle bundle = new Bundle();
+                bundle.putBoolean("amigo", false);
+                it.putExtras(bundle);
+                startActivity(it);
+            }
+        });
+        Button itensDeAmigos = (Button) findViewById(R.id.itensDeAmigos);
+        itensDeAmigos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it = new Intent(view.getContext(), ItemActivity.class);
+                it.putExtra("usuario", usuario);
+                Bundle bundle = new Bundle();
+                bundle.putBoolean("amigo", true);
+                it.putExtras(bundle);
                 startActivity(it);
             }
         });

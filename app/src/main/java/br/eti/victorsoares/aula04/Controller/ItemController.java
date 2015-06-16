@@ -5,8 +5,10 @@ import android.content.Context;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.eti.victorsoares.aula04.Model.Amigo;
 import br.eti.victorsoares.aula04.Model.Item;
 import br.eti.victorsoares.aula04.Model.Pessoa;
+import br.eti.victorsoares.aula04.Model.Usuario;
 import br.eti.victorsoares.aula04.daos.ItemDAO;
 
 /**
@@ -22,12 +24,12 @@ public class ItemController {
         this.itemDAO  = new ItemDAO(context);
     }
 
-    public List getList(){
+    public ArrayList<Item> getList(Amigo amigo){
 
 //        ArrayList<Object> list = new ArrayList<>();
 //        list.add(getItem(1));
 //        return list;
-        return itemDAO.getList();
+        return null;
     }
 
     public List getList(Pessoa pessoa){
@@ -43,5 +45,16 @@ public class ItemController {
 
     public void insert(Item item){
 
+    }
+
+    public void insert(Item item, Usuario usuario) {
+    }
+
+    public void insert(Item item, Usuario usuario, Amigo amigo) {
+
+    }
+
+    public List getItensAmigos(Usuario usuario) {
+        return new ArrayList<>();
     }
 }

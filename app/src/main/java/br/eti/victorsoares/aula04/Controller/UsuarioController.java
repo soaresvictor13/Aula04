@@ -65,4 +65,9 @@ public class UsuarioController {
         amizadeDAO.insert(usuario, pessoa);
 
     }
+
+    public void getAmigos(Usuario usuario){
+
+    }
+
 }

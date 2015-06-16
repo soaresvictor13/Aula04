@@ -4,12 +4,6 @@
     tools:context="br.eti.victorsoares.aula04.View.Fragment.MeusEmprestimosFragment"
     android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Peguei emprestado"
-        android:id="@+id/text"/>
 
     <Button
         android:layout_width="match_parent"

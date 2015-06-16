@@ -37,6 +37,8 @@ public class CategoriaActivity extends Activity {
                     c.setDescricao(editText.getText().toString());
                     new CategoriaController(view.getContext()).salvar(c);
                     adapterCategoria.add(c);
+                    editText.setText("");
+                    editText.clearFocus();
                 }
             }
         });

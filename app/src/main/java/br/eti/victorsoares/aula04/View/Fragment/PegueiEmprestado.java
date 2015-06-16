@@ -63,7 +63,6 @@ public class PegueiEmprestado extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         layout = inflater.inflate(R.layout.fragment_peguei_emprestado, container, false);
-        textView = (TextView) layout.findViewById(R.id.text);
         listView = (ListView) layout.findViewById(R.id.list);
         return layout;
     }
@@ -72,8 +71,6 @@ public class PegueiEmprestado extends Fragment {
     public void onResume() {
         super.onStart();
         if(layout != null & usuario != null){
-            textView.setText(usuario.getUsuario());
-
             EmprestimoController emprestimoController = new EmprestimoController(layout.getContext());
             AdapterEmprestimos adapterEmprestimos = new AdapterEmprestimos(layout.getContext(), emprestimoController.getPegueiEmprestado(usuario));
             listView.setAdapter(adapterEmprestimos);

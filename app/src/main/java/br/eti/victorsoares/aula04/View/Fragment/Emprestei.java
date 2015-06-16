@@ -21,8 +21,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import br.eti.victorsoares.aula04.Adapters.AdapterAmigos;
 import br.eti.victorsoares.aula04.Adapters.AdapterItem;
+import br.eti.victorsoares.aula04.Controller.AmigoController;
 import br.eti.victorsoares.aula04.Controller.EmprestimoController;
+import br.eti.victorsoares.aula04.Controller.ItemController;
+import br.eti.victorsoares.aula04.Controller.UsuarioController;
+import br.eti.victorsoares.aula04.Model.Amigo;
 import br.eti.victorsoares.aula04.Model.Emprestimo;
 import br.eti.victorsoares.aula04.Model.Item;
 import br.eti.victorsoares.aula04.Model.Usuario;
@@ -54,18 +59,25 @@ public class Emprestei extends Fragment {
 
                 final Spinner meusAmigos = (Spinner) v.findViewById(R.id.meusAmigos);
                 final Spinner itens = (Spinner) v.findViewById(R.id.itens);
-                final ArrayList<Item> listaItens = new ArrayList<Item>();
 
-                Item item = new Item();
-                item.setDescricao("Selecione...");
-                listaItens.add(item);
-                for (int i = 1; i < 10; i++) {
-                    item = new Item();
-                    item.setDescricao("teste "+i);
-                    listaItens.add(item);
-                };
+                AmigoController controller = new AmigoController(view.getContext());
+                ArrayList listaAmigos = new ArrayList();
+                listaAmigos = controller.getAmigos(usuario);
+                if(listaAmigos != null)meusAmigos.setAdapter(new AdapterAmigos(view.getContext(), listaAmigos));
 
-                itens.setAdapter(new AdapterItem(listaItens, view.getContext()));
+                meusAmigos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                        ItemController itemController = new ItemController(view.getContext());
+                        ArrayList<Item> listaItens = itemController.getList((Amigo) meusAmigos.getAdapter().getItem(meusAmigos.getSelectedItemPosition()));
+                        itens.setAdapter(new AdapterItem(listaItens, view.getContext()));
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
 
 
                 final ListView itensSelecionados = (ListView) v.findViewById(R.id.list_itens_selecionados);

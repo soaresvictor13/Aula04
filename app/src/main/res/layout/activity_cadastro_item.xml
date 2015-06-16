@@ -11,16 +11,26 @@
         android:layout_height="wrap_content"
         android:hint="Descrição"
         android:id="@+id/descricao"/>
+
+
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/spiner"
         android:layout_below="@+id/descricao"></Spinner>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/meusAmigos"
+        android:visibility="invisible"
+        android:layout_below="@id/spiner"></Spinner>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/salvar"
         android:text="Salvar"
-        android:layout_below="@+id/spiner"/>
+        android:layout_below="@+id/meusAmigos"/>
 
 </RelativeLayout>
