@@ -13,6 +13,7 @@ import br.eti.victorsoares.aula04.smldao.AmigosDAO;
  */
 public class AmigoController {
 
+    
     private Context context;
     private AmigosDAO adao;
 
