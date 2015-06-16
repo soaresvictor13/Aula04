@@ -69,7 +69,7 @@ public class Emprestei extends Fragment {
                     @Override
                     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                         ItemController itemController = new ItemController(view.getContext());
-                        ArrayList<Item> listaItens = itemController.getList((Amigo) meusAmigos.getAdapter().getItem(meusAmigos.getSelectedItemPosition()));
+                        ArrayList<Item> listaItens = itemController.getMeusItens(usuario);
                         itens.setAdapter(new AdapterItem(listaItens, view.getContext()));
                     }
 
@@ -115,7 +115,9 @@ public class Emprestei extends Fragment {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Emprestimo novoEmprestimo = new Emprestimo();
 
-                        EmprestimoController.insert(novoEmprestimo);
+
+
+                        EmprestimoController.insertEmprestei(novoEmprestimo);
 
                     }
                 });

@@ -26,8 +26,9 @@ public class EmprestimoController {
         return null;
     }
 
+    public static void insertPegueiEmprestado(Emprestimo novoEmprestimo) {
+    }
 
-    public static void insert(Emprestimo novoEmprestimo) {
-
+    public static void insertEmprestei(Emprestimo novoEmprestimo) {
     }
 }
