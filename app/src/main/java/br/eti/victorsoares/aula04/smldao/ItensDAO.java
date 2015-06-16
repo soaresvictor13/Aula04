@@ -9,13 +9,12 @@ import br.eti.victorsoares.aula04.daos.AcessoDB;
  */
 public class ItensDAO implements modeloDAO{
 
-    private AcessoDB acessoDB;
-
     protected static final String SCRIPT_CREATE="CREATE TABLE Itens(" +
                                                 "_cod_item INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                                                "FOREIGN KEY (_cod_categoria) REFERENCES Categoria(_cod_categoria),"+
                                                 "descricao_item TEXT,"+
                                                 "nome_item TEXT;";
+    private AcessoDB acessoDB;
+
     @Override
     public void insert(Object obj) {
 
