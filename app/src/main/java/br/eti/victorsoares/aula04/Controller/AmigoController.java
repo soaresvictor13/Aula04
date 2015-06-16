@@ -12,7 +12,6 @@ import br.eti.victorsoares.aula04.smldao.AmigosDAO;
  * Created by vsoares on 16/06/15.
  */
 public class AmigoController {
-
     
     private Context context;
     private AmigosDAO adao;
