@@ -1,6 +1,7 @@
 package br.eti.victorsoares.aula04.View;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -35,6 +36,9 @@ public class ItemActivity extends Activity {
             @Override
             public void onClick(View view) {
                 //Activity novo item.
+                Intent intent = new Intent(view.getContext(), CadastroItemActivity.class);
+                startActivity(intent);
+                
             }
         });
 

@@ -8,6 +8,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="8"
         android:id="@+id/icone"
+        android:src="@drawable/abc_btn_check_to_on_mtrl_015"
         />
     <TextView
         android:layout_width="match_parent"

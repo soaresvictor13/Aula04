@@ -45,6 +45,14 @@
             android:name=".View.NovoAmigoActivity"
             android:label="@string/title_activity_novo_amigo" >
         </activity>
+        <activity
+            android:name=".View.ItensActivity"
+            android:label="@string/title_activity_itens" >
+        </activity>
+        <activity
+            android:name=".View.EmprestimosActivity"
+            android:label="@string/title_activity_emprestimos" >
+        </activity>
     </application>
 
 </manifest>

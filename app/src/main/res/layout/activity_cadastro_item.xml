@@ -14,10 +14,13 @@
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spiner"></Spinner>
+        android:id="@+id/spiner"
+        android:layout_below="@+id/descricao"></Spinner>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/salvar"/>
+        android:id="@+id/salvar"
+        android:text="Salvar"
+        android:layout_below="@+id/spiner"/>
 
 </RelativeLayout>

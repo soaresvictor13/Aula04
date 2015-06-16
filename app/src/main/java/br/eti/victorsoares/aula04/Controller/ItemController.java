@@ -40,4 +40,8 @@ public class ItemController {
 //        return item;
         return itemDAO.getItem(id);
     }
+
+    public void insert(Item item){
+
+    }
 }

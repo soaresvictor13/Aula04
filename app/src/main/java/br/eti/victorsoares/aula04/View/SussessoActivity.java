@@ -59,6 +59,17 @@ public class SussessoActivity extends Activity {
             }
         });
 
+        Button emprestimos = (Button) findViewById(R.id.emprestimos);
+        emprestimos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent it = new Intent(view.getContext(), EmprestimosActivity.class);
+                it.putExtra("usuario", usuario);
+                startActivity(it);
+            }
+        });
+
 
 
 
