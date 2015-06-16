@@ -6,12 +6,21 @@ import java.util.Calendar;
  * Created by samuel on 16/06/15.
  */
 public class ItensEmprestadosParaMin {
+    private long cod_emprestimo;
     private long cod_item;
     private long cod_usuario;
     private long cod_amigo;
     private Calendar data_emprestimo;
     private Calendar data_devolucao;
     private String status_emprestimo;
+
+    public long getCod_emprestimo() {
+        return cod_emprestimo;
+    }
+
+    public void setCod_emprestimo(long cod_emprestimo) {
+        this.cod_emprestimo = cod_emprestimo;
+    }
 
     public long getCod_item() {
         return cod_item;

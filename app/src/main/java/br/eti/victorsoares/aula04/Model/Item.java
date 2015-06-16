@@ -6,7 +6,15 @@ package br.eti.victorsoares.aula04.Model;
 public class Item {
     private long id;
     private String descricao;
-    private Categoria categoria;
+    private String nome;
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
     public long getId() {
         return id;
@@ -24,11 +32,4 @@ public class Item {
         this.descricao = descricao;
     }
 
-    public Categoria getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
-    }
 }
