@@ -7,6 +7,15 @@ public class Item {
     private long id;
     private String descricao;
     private String nome;
+    private Categoria categoria;
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
 
     public String getNome() {
         return nome;
