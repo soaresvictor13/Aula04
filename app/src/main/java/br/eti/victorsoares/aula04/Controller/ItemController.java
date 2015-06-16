@@ -44,7 +44,7 @@ public class ItemController {
     }
 
     public void insert(Item item){
-
+        Item i = new Item();
     }
 
     public void insert(Item item, Usuario usuario) {

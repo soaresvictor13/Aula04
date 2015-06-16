@@ -1,6 +1,7 @@
 package br.eti.victorsoares.aula04.smldao;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
@@ -15,14 +16,16 @@ import br.eti.victorsoares.aula04.daos.AcessoDB;
  */
 public class AmigosDAO implements modeloDAO{
 
-    private AcessoDB acessoDB;
-
     protected static final String SCRIPT_CREATE = "CREATE TABLE Amigos(" +
             "_cod_amigo INTEGER PRIMARY KEY AUTOINCREMENT, " +
             "FOREIGN KEY (_cod_usuario) REFERENCES Usuarios(_cod_usuario)," +
             "nome_amigo TEXT," +
             "img_amigo TEXT";
+    private AcessoDB acessoDB;
 
+    public AmigosDAO(Context context){
+        this.acessoDB = new AcessoDB(context);
+    }
 
     @Override
     public void insert(Object obj) {
