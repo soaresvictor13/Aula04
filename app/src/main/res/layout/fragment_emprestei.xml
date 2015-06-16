@@ -1,18 +1,27 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.eti.victorsoares.aula04.View.Fragment.MeusEmprestimosFragment">
+    tools:context="br.eti.victorsoares.aula04.View.Fragment.MeusEmprestimosFragment"
+    android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:text="Emprestei"
         android:id="@+id/text"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnNovoEmprestimo"
+        android:text="Novo"
+        android:onClick="novoEmprestimo"/>
+
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/list"/>
+        android:layout_height="0dp"
+        android:id="@+id/list"
+        />
 
-</FrameLayout>
+</LinearLayout>

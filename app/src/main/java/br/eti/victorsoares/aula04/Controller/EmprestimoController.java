@@ -4,6 +4,7 @@ import android.content.Context;
 
 import java.util.ArrayList;
 
+import br.eti.victorsoares.aula04.Model.Emprestimo;
 import br.eti.victorsoares.aula04.Model.Usuario;
 
 /**
@@ -19,5 +20,14 @@ public class EmprestimoController {
 
     public ArrayList<Object> getPegueiEmprestado(Usuario usuario) {
         return null;
+    }
+
+    public ArrayList<Object> getEmprestei(Usuario usuario) {
+        return null;
+    }
+
+
+    public static void insert(Emprestimo novoEmprestimo) {
+
     }
 }
