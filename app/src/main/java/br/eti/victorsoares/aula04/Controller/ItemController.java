@@ -32,19 +32,11 @@ public class ItemController {
         return null;
     }
 
-    public List getList(Pessoa pessoa){
-        return itemDAO.getList(pessoa.getId());
-    }
-
     public Item getItem(long id) {
 //        Item item = new Item();
 //        item.setDescricao("teste");
 //        return item;
         return itemDAO.getItem(id);
-    }
-
-    public void insert(Item item){
-
     }
 
     public void insert(Item item, Usuario usuario) {
@@ -54,7 +46,14 @@ public class ItemController {
 
     }
 
-    public List getItensAmigos(Usuario usuario) {
+    public ArrayList getItensAmigos(Usuario usuario) {
+        return new ArrayList<>();
+    }
+    public ArrayList getItensAmigos(Usuario usuario, Amigo amigo) {
+        return new ArrayList<>();
+    }
+
+    public ArrayList<Item> getMeusItens(Usuario usuario) {
         return new ArrayList<>();
     }
 }

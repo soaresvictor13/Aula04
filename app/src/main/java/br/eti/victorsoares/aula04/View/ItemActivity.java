@@ -37,7 +37,7 @@ public class ItemActivity extends Activity {
             listView.setAdapter(new AdapterItem(new ItemController(this).getItensAmigos(usuario), this));
         }
         else{
-            listView.setAdapter(new AdapterItem(new ItemController(this).getList(usuario), this));
+            listView.setAdapter(new AdapterItem(new ItemController(this).getMeusItens(usuario), this));
         }
 
         Button novo = (Button) findViewById(R.id.btnNovoItem);
