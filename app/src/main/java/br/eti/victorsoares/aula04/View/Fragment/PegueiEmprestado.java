@@ -8,8 +8,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import br.eti.victorsoares.aula04.Adapters.AdapterEmprestimos;
+import br.eti.victorsoares.aula04.Adapters.AdapterItem;
+import br.eti.victorsoares.aula04.Controller.EmprestimoController;
 import br.eti.victorsoares.aula04.Model.Usuario;
 import br.eti.victorsoares.aula04.R;
 
@@ -22,6 +26,7 @@ public class PegueiEmprestado extends Fragment {
     private Bundle b;
     private View layout;
     private TextView textView;
+    private ListView listView;
 
 
     /**
@@ -58,6 +63,8 @@ public class PegueiEmprestado extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         layout = inflater.inflate(R.layout.fragment_peguei_emprestado, container, false);
+        textView = (TextView) layout.findViewById(R.id.text);
+        listView = (ListView) layout.findViewById(R.id.list);
         return layout;
     }
 
@@ -65,8 +72,11 @@ public class PegueiEmprestado extends Fragment {
     public void onResume() {
         super.onStart();
         if(layout != null & usuario != null){
-            textView = (TextView) layout.findViewById(R.id.text);
             textView.setText(usuario.getUsuario());
+
+            EmprestimoController emprestimoController = new EmprestimoController(layout.getContext());
+            AdapterEmprestimos adapterEmprestimos = new AdapterEmprestimos(layout.getContext(), emprestimoController.getPegueiEmprestado(usuario));
+            listView.setAdapter(adapterEmprestimos);
         }
     }
 }
