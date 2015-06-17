@@ -84,6 +84,7 @@ public class AmigosDAO implements modeloDAO{
         }
         baseDados.close();
         return list;
+        
     }
 
     public ArrayList<Object> getAmigos(Usuario u){
