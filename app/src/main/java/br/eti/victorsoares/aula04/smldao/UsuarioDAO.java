@@ -16,10 +16,9 @@ import br.eti.victorsoares.aula04.smldao.AcessoDB;
 public class UsuarioDAO{
 
     protected static final String SCRIPT_CREATE = "CREATE TABLE usuario(" +
-            "_cod INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            "_cod_usuario INTEGER PRIMARY KEY AUTOINCREMENT, " +
             "usuario TEXT, " +
             "senha TEXT," +
-            "FOREIGN KEY(_id_pessoa) REFERENCES pessoa(_id), " +
             "UNIQUE (usuario));";
 
     AcessoDB acessoDB;
@@ -50,7 +49,7 @@ public class UsuarioDAO{
             do {
                 //Recuperando valores e add a lista.
                 Usuario u = new Usuario();
-                u.setId(retornoBase.getLong(retornoBase.getColumnIndex("_cod")));
+                u.setId(retornoBase.getLong(retornoBase.getColumnIndex("_cod_usuario")));
                 u.setUsuario(retornoBase.getString((retornoBase.getColumnIndex("usuario"))));
                 list.add(u);
             } while (retornoBase.moveToNext());
@@ -62,12 +61,12 @@ public class UsuarioDAO{
     public Object get(long id) {
 
         SQLiteDatabase baseDados = acessoDB.getReadableDatabase();
-        String query = "SELECT * FROM usuario WHERE _cod=?";
+        String query = "SELECT * FROM usuario WHERE _cod_usuario=?";
         Cursor c = baseDados.rawQuery(query, new String[] { String.valueOf(id) });
 
         if(c.moveToFirst()) {
             Usuario u = new Usuario();
-            u.setId(c.getLong(c.getColumnIndex("_id")));
+            u.setId(c.getLong(c.getColumnIndex("_cod_usuario")));
             u.setUsuario(c.getString((c.getColumnIndex("usuario"))));
             baseDados.close();
             return u;
@@ -85,7 +84,7 @@ public class UsuarioDAO{
 
         if(c.moveToFirst()) {
             Usuario u = new Usuario();
-            u.setId(c.getLong(c.getColumnIndex("_cod")));
+            u.setId(c.getLong(c.getColumnIndex("_cod_usuario")));
             u.setUsuario(c.getString((c.getColumnIndex("usuario"))));
             baseDados.close();
             return u;
@@ -102,14 +101,14 @@ public class UsuarioDAO{
         ContentValues cv = new ContentValues();
         cv.put("usuario", u.getUsuario());
         cv.put("senha", u.getSenha());
-        baseDados.update("usuario", cv, "_cod =" + u.getId(), null);
+        baseDados.update("usuario", cv, "_cod_usuario =" + u.getId(), null);
 
     }
 
     public void delete(Object obj) {
         Usuario u = (Usuario) obj;
         SQLiteDatabase baseDados = acessoDB.getWritableDatabase();
-        baseDados.delete("usuario", "_cod =" + u.getId(), null);
+        baseDados.delete("usuario", "_cod_usuario =" + u.getId(), null);
         baseDados.close();
     }
 
@@ -122,7 +121,7 @@ public class UsuarioDAO{
 
         if(c.moveToFirst()) {
             Usuario u = new Usuario();
-            u.setId(c.getLong(c.getColumnIndex("_cod")));
+            u.setId(c.getLong(c.getColumnIndex("_cod_usuario")));
             u.setUsuario(c.getString((c.getColumnIndex("usuario"))));
             baseDados.close();
             return u;

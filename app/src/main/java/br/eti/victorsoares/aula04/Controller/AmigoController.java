@@ -31,7 +31,6 @@ public class AmigoController {
     }
 
     public ArrayList getAmigos(Usuario usuario) {
-
         return this.adao.getAmigos(usuario);
     }
 }
