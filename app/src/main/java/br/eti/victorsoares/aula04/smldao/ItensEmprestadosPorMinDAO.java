@@ -42,6 +42,7 @@ public class ItensEmprestadosPorMinDAO implements modeloDAO {
         valoresInserir.put("status" , ieparam.getStatus_emprestimo());
         baseDados.close();
     }
+    
 
     @Override
     public void update(Object obj) {
