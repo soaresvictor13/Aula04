@@ -16,12 +16,12 @@ import br.eti.victorsoares.aula04.daos.AcessoDB;
  */
 public class CategoriaDAO implements modeloDAO {
 
-    private AcessoDB acessoDB;
-
     protected static final String SCRIPT_CREATE = "CREATE TABLE Categoria(" +
                                               "_cod_categoria INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                                              "FOREIGN KEY (_cod_item) REFERENCES Itens(_cod_item)," +
-                                              "nome_categoria TEXT;";
+                                              "_cod_item INTEGER,"+
+                                              "nome_categoria TEXT," +
+                                              "FOREIGN KEY (_cod_item) REFERENCES Itens(_cod_item);" ;
+    private AcessoDB acessoDB;
 
     @Override
     public void insert(Object obj) {

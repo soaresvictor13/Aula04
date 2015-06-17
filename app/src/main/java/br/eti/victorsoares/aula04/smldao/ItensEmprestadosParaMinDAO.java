@@ -21,12 +21,16 @@ public class ItensEmprestadosParaMinDAO implements modeloDAO {
 
     protected static final String SCRIPT_CREATE="CREATE TABLE Itens_Emprestados_Para_Min(" +
             "_cod_emprestimo INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            "FOREIGN KEY (_cod_usuario) REFERENCES Usuarios(_cod_usuario),"+
-            "FOREIGN KEY (_cod_amigo) REFERENCES Amigos(_cod_amigo),"+
-            "FOREIGN KEY (_cod_item) REFERENCES ItensAmigo(_cod_item),"+
+            "_cod_usuario INTEGER ,"+
+            "_cod_amigo INTEGER ,"+
+            "_cod_item INTEGER ,"+
             "data_emprestimo TEXT,"+
             "data_devolucao TEXT,"+
-            "status TEXT;";
+            "status TEXT,"+
+            "FOREIGN KEY (_cod_usuario) REFERENCES Usuarios(_cod_usuario),"+
+            "FOREIGN KEY (_cod_amigo) REFERENCES Amigos(_cod_amigo),"+
+            "FOREIGN KEY (_cod_item) REFERENCES ItensAmigo(_cod_item);";
+
     private AcessoDB acessoDB;
 
     @Override

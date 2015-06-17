@@ -18,8 +18,9 @@ public class ItensDAO implements modeloDAO{
 
     protected static final String SCRIPT_CREATE="CREATE TABLE Itens(" +
                                                 "_cod_item INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                                                "descricao_item TEXT,"+
-                                                "nome_item TEXT;";
+                                                "nome_item TEXT,"+
+                                                "descricao_item TEXT;";
+
     private AcessoDB acessoDB;
 
     @Override
