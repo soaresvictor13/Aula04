@@ -9,14 +9,6 @@ public class Item {
     private String nome;
     private Categoria categoria;
 
-    public Categoria getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
-    }
-
     public String getNome() {
         return nome;
     }
@@ -41,4 +33,7 @@ public class Item {
         this.descricao = descricao;
     }
 
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
 }

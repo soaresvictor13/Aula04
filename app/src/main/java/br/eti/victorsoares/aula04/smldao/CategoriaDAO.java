@@ -7,9 +7,7 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
-import br.eti.victorsoares.aula04.Model.Amigo;
 import br.eti.victorsoares.aula04.Model.Categoria;
-import br.eti.victorsoares.aula04.daos.AcessoDB;
 
 /**
  * Created by samuel on 09/06/15.

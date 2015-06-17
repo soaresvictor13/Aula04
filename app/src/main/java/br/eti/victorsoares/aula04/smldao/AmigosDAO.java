@@ -9,8 +9,6 @@ import android.util.Log;
 import java.util.ArrayList;
 
 import br.eti.victorsoares.aula04.Model.Amigo;
-import br.eti.victorsoares.aula04.Model.Usuario;
-import br.eti.victorsoares.aula04.daos.AcessoDB;
 
 /**
  * Created by samuel on 09/06/15.
@@ -85,27 +83,5 @@ public class AmigosDAO implements modeloDAO{
         baseDados.close();
         return list;
         
-    }
-
-    public ArrayList<Object> getAmigos(Usuario u){
-        ArrayList<Object> list = new ArrayList<>();
-        SQLiteDatabase baseDados = acessoDB.getReadableDatabase();
-        String query = "SELECT * FROM Amigos where _cod_usuario=?";
-        Cursor retornoBase = baseDados.rawQuery(query, new String[] {String.valueOf(u.getId())});
-
-        if(retornoBase.moveToFirst()) {
-            do {
-                //Recuperando valores e add a lista.
-                //
-                Amigo amigo = new Amigo();
-                amigo.setCod_amigo(retornoBase.getLong(retornoBase.getColumnIndex("_cod_amigo")));
-                amigo.setCod_usuario(retornoBase.getLong(retornoBase.getColumnIndex("_cod_usuario")));
-                amigo.setNome(retornoBase.getString(retornoBase.getColumnIndex("nome_amigo")));
-                amigo.setImagem(retornoBase.getString(retornoBase.getColumnIndex("img_amigo")));
-                list.add(amigo);
-            } while (retornoBase.moveToNext());
-        }
-        baseDados.close();
-        return list;
     }
 }

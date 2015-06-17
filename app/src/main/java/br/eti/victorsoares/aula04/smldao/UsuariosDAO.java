@@ -2,8 +2,6 @@ package br.eti.victorsoares.aula04.smldao;
 
 import java.util.ArrayList;
 
-import br.eti.victorsoares.aula04.daos.AcessoDB;
-
 /**
  * Created by samuel on 09/06/15.
  */

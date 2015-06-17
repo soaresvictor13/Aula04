@@ -5,15 +5,12 @@ import android.content.Context;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.util.List;
 
-import br.eti.victorsoares.aula04.Model.Categoria;
 import br.eti.victorsoares.aula04.Model.Pessoa;
 import br.eti.victorsoares.aula04.Model.Usuario;
 import br.eti.victorsoares.aula04.daos.AmizadeDAO;
-import br.eti.victorsoares.aula04.daos.CategoriaDAO;
 import br.eti.victorsoares.aula04.daos.PessoaDAO;
-import br.eti.victorsoares.aula04.daos.UsuarioDAO;
+import br.eti.victorsoares.aula04.smldao.UsuarioDAO;
 
 /**
  * Created by vsoares on 01/06/15.

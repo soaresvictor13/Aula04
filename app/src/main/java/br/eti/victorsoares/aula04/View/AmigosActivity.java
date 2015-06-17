@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import br.eti.victorsoares.aula04.Adapters.AdapterAmigos;
+import br.eti.victorsoares.aula04.Controller.AmigoController;
 import br.eti.victorsoares.aula04.Controller.UsuarioController;
 import br.eti.victorsoares.aula04.Model.Pessoa;
 import br.eti.victorsoares.aula04.Model.Usuario;
@@ -40,7 +41,7 @@ public class AmigosActivity extends Activity{
 
         lista = (ListView) findViewById(R.id.list);
 
-        AdapterAmigos adapterAmigos = new AdapterAmigos(this, new UsuarioController(this).getFriends(usuario));
+        AdapterAmigos adapterAmigos = new AdapterAmigos(this, new AmigoController(this).getAmigos(usuario));
         lista.setAdapter(adapterAmigos);
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
