@@ -1,6 +1,7 @@
 package br.eti.victorsoares.aula04.smldao;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
@@ -18,8 +19,12 @@ public class CategoriaDAO implements modeloDAO {
                                               "_cod_categoria INTEGER PRIMARY KEY AUTOINCREMENT, " +
                                               "_cod_item INTEGER,"+
                                               "nome_categoria TEXT," +
-                                              "FOREIGN KEY (_cod_item) REFERENCES Itens(_cod_item);" ;
+                                              "FOREIGN KEY (_cod_item) REFERENCES Itens(_cod_item));" ;
     private AcessoDB acessoDB;
+
+    public CategoriaDAO(Context context) {
+        acessoDB = new AcessoDB(context);
+    }
 
     @Override
     public void insert(Object obj) {
@@ -27,8 +32,8 @@ public class CategoriaDAO implements modeloDAO {
         Categoria categoria = (Categoria) obj;
         SQLiteDatabase baseDados = acessoDB.getWritableDatabase();
         ContentValues valoresInserir = new ContentValues();
-        valoresInserir.put("nome_categorias", categoria.getDescricao());
-        baseDados.insert("Categorias",null,valoresInserir);
+        valoresInserir.put("nome_categoria", categoria.getDescricao());
+        baseDados.insert("Categoria",null,valoresInserir);
         baseDados.close();
     }
 
@@ -60,7 +65,7 @@ public class CategoriaDAO implements modeloDAO {
 
         ArrayList<Object> list = new ArrayList<>();
         SQLiteDatabase baseDados = acessoDB.getReadableDatabase();
-        String query = "SELECT * FROM Categorias";
+        String query = "SELECT * FROM Categoria";
         Cursor retornoBase = baseDados.rawQuery(query, null);
 
         if(retornoBase.moveToFirst()) {

@@ -53,6 +53,10 @@
             android:name=".View.EmprestimosActivity"
             android:label="@string/title_activity_emprestimos" >
         </activity>
+        <activity
+            android:name=".View.EditarItemActivity"
+            android:label="@string/title_activity_editar_item" >
+        </activity>
     </application>
 
 </manifest>

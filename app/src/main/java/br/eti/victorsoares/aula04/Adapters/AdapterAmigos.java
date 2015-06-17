@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import br.eti.victorsoares.aula04.Model.Amigo;
 import br.eti.victorsoares.aula04.Model.Pessoa;
 import br.eti.victorsoares.aula04.R;
 
@@ -36,8 +37,8 @@ public class AdapterAmigos extends BaseAdapter{
 
     @Override
     public long getItemId(int i) {
-        Pessoa p = (Pessoa) getItem(i);
-        return p.getId();
+        Amigo p = (Amigo) getItem(i);
+        return p.getCod_amigo();
     }
 
     @Override
@@ -52,7 +53,7 @@ public class AdapterAmigos extends BaseAdapter{
             layout = view;
         }
 
-        Pessoa p = (Pessoa) getItem(i);
+        Amigo p = (Amigo) getItem(i);
 
         TextView nome = (TextView) layout.findViewById(R.id.text);
 

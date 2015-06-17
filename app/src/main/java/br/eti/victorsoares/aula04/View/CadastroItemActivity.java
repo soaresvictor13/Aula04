@@ -35,7 +35,7 @@ public class CadastroItemActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_item);
 
-        usuario = (Usuario) getIntent().getSerializableExtra("usuario");
+        usuario = (Usuario) getIntent().getExtras().getSerializable("usuario");
 
         amigos = getIntent().getExtras().getBoolean("amigo");
 
@@ -75,9 +75,10 @@ public class CadastroItemActivity extends Activity {
                     item.setCategoria((Categoria) spinner.getAdapter().getItem(spinner.getSelectedItemPosition()));
 
                     ItemController controller = new ItemController(view.getContext());
-                    controller.insert(item, usuario);
                     if(amigo != null){
                         controller.insert(item, usuario, amigo);
+                    }else{
+                        controller.insert(item, usuario);
                     }
                     Toast.makeText(view.getContext(), "Item cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
                     finish();

@@ -25,7 +25,7 @@ public class ItensEmprestadosPorMinDAO implements modeloDAO {
             "status TEXT,"+
             "FOREIGN KEY (_cod_usuario) REFERENCES Usuarios(_cod_usuario),"+
             "FOREIGN KEY (_cod_amigo) REFERENCES Amigos(_cod_amigo),"+
-            "FOREIGN KEY (_cod_item) REFERENCES ItensAmigo(_cod_item);";
+            "FOREIGN KEY (_cod_item) REFERENCES ItensAmigo(_cod_item));";
     
     private AcessoDB acessoDB;
 

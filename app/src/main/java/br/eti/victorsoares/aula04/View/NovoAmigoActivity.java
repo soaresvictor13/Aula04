@@ -40,7 +40,7 @@ public class NovoAmigoActivity extends Activity{
                 p.setImagem(email.getText().toString());
 
                 AmigoController amigoController = new AmigoController(view.getContext());
-                amigoController.insert(p);
+                amigoController.insert(p,usuario);
                 Toast.makeText(view.getContext(), "Novo amigo salvo com sucesso!", Toast.LENGTH_SHORT).show();
                 finish();
             }

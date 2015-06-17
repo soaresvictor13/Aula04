@@ -1,9 +1,11 @@
 package br.eti.victorsoares.aula04.Model;
 
+import java.io.Serializable;
+
 /**
  * Created by vsoares on 26/05/15.
  */
-public class Item {
+public class Item implements Serializable{
     private long id;
     private String descricao;
     private String nome;
@@ -35,5 +37,9 @@ public class Item {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
     }
 }

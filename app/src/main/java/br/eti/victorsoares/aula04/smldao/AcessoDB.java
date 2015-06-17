@@ -13,7 +13,7 @@ import br.eti.victorsoares.aula04.daos.*;
  */
 public class AcessoDB extends SQLiteOpenHelper {
 
-	private static final int DATABASE_VERSION = 3;
+	private static final int DATABASE_VERSION = 4;
 	private static final String DATABASE_NAME = "trabalhoCM";
 	
 	
@@ -29,11 +29,6 @@ public class AcessoDB extends SQLiteOpenHelper {
 
         db.execSQL(UsuarioDAO.SCRIPT_CREATE);
         db.execSQL(AmigosDAO.SCRIPT_CREATE);
-        db.execSQL(ItensAmigoDAO.SCRIPT_CREATE);
-        db.execSQL(ItensDAO.SCRIPT_CREATE);
-        db.execSQL(CategoriaDAO.SCRIPT_CREATE);
-        db.execSQL(ItensEmprestadosPorMinDAO.SCRIPT_CREATE);
-        db.execSQL(ItensEmprestadosParaMinDAO.SCRIPT_CREATE);
 
         //fim criação de tabelas
 
@@ -43,6 +38,11 @@ public class AcessoDB extends SQLiteOpenHelper {
 	public void onUpgrade(SQLiteDatabase db, int versaoAnterior, int versaoRecente) {
 		Log.v("AcessoDB", "Estou atualizando banco de dados :)");
 
+        db.execSQL(ItensAmigoDAO.SCRIPT_CREATE);
+        db.execSQL(ItensDAO.SCRIPT_CREATE);
+        db.execSQL(CategoriaDAO.SCRIPT_CREATE);
+        db.execSQL(ItensEmprestadosPorMinDAO.SCRIPT_CREATE);
+        db.execSQL(ItensEmprestadosParaMinDAO.SCRIPT_CREATE);
 
 	}
 

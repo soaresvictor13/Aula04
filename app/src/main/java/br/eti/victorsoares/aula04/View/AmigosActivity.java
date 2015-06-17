@@ -67,35 +67,24 @@ public class AmigosActivity extends Activity{
     @Override
     public boolean onContextItemSelected(MenuItem item) {
 
-
-        Pessoa pessoa = null;
-
-        pessoa = (Pessoa) lista.getAdapter().getItem(lista.getSelectedItemPosition());
-
         switch (item.getItemId()){
             case R.id.editar:
-                    editarAmigo(pessoa);
+                    editarAmigo();
                 return true;
             case R.id.apagar:
-                    apagarAmigo(pessoa);
+                    apagarAmigo();
                 return true;
             default:
                 return super.onContextItemSelected(item);
         }
     }
 
-    private void apagarAmigo(Pessoa pessoa) {
-
-        Toast.makeText(this, "apagar: "+pessoa.getNome(), Toast.LENGTH_SHORT).show();
-
+    private void apagarAmigo() {
         Log.e("teste", "teste");
 
     }
 
-    private void editarAmigo(Pessoa pessoa) {
-
-        Toast.makeText(this, "editar: "+pessoa.getNome(), Toast.LENGTH_SHORT).show();
-
+    private void editarAmigo() {
         Log.e("teste", "teste");
     }
 

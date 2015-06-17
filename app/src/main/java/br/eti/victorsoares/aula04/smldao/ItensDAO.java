@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import br.eti.victorsoares.aula04.Model.Item;
 
@@ -18,7 +19,7 @@ public class ItensDAO implements modeloDAO{
     protected static final String SCRIPT_CREATE="CREATE TABLE Itens(" +
                                                 "_cod_item INTEGER PRIMARY KEY AUTOINCREMENT, " +
                                                 "nome_item TEXT,"+
-                                                "descricao_item TEXT;";
+                                                "descricao_item TEXT)";
 
     private AcessoDB acessoDB;
 
@@ -28,7 +29,7 @@ public class ItensDAO implements modeloDAO{
 
     @Override
     public void insert(Object obj) {
-        Log.i("BANCO0", "Inserindo novo item de amigo");
+        Log.i("BANCO0", "Inserindo novo item");
         Item ia = (Item) obj;
         SQLiteDatabase baseDados = acessoDB.getWritableDatabase();
         ContentValues valoresInserir = new ContentValues();
@@ -52,20 +53,20 @@ public class ItensDAO implements modeloDAO{
 
     @Override
     public void delete(Object obj) {
-        Log.i("BANCO0", "Deletando um item de amigo");
+        Log.i("BANCO0", "Deletando um item");
         Item ia = (Item) obj;
         SQLiteDatabase baseDados = acessoDB.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put("_cod_item",ia.getId());
-        baseDados.delete("Itens", "_cod_item", new String[]{String.valueOf(ia.getId())});
+        baseDados.delete("Itens", "_cod_item = ?", new String[]{String.valueOf(ia.getId())});
         baseDados.close();
     }
 
     @Override
     public ArrayList<Object> get() {
-        ArrayList<Object> list = new ArrayList<>();
+        ArrayList<Object> list = new ArrayList<Object>();
         SQLiteDatabase baseDados = acessoDB.getReadableDatabase();
-        String query = "SELECT * FROM ItensAmigos";
+        String query = "SELECT * FROM Itens";
         Cursor retornoBase = baseDados.rawQuery(query, null);
 
         if(retornoBase.moveToFirst()) {
@@ -79,6 +80,8 @@ public class ItensDAO implements modeloDAO{
                 list.add(ia);
             } while (retornoBase.moveToNext());
         }
+
+        Log.d("Banco", "Retornou "+ list.size());
         baseDados.close();
         return list;
     }

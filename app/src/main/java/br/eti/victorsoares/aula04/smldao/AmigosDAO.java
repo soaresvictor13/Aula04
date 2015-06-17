@@ -10,7 +10,6 @@ import java.util.ArrayList;
 
 import br.eti.victorsoares.aula04.Model.Amigo;
 import br.eti.victorsoares.aula04.Model.Usuario;
-import br.eti.victorsoares.aula04.daos.AcessoDB;
 
 /**
  * Created by samuel on 09/06/15.
@@ -36,8 +35,10 @@ public class AmigosDAO implements modeloDAO{
         ContentValues valoresInserir = new ContentValues();
         valoresInserir.put("nome_amigo", amigo.getNome());
         valoresInserir.put("img_amigo", amigo.getImagem());
+        valoresInserir.put("_cod_usuario", amigo.getCod_usuario());
         baseDados.insert("Amigos",null,valoresInserir);
         baseDados.close();
+        Log.i("BANCO0", "Inserindo novo amigo");
     }
 
     @Override
@@ -92,7 +93,6 @@ public class AmigosDAO implements modeloDAO{
         SQLiteDatabase baseDados = acessoDB.getReadableDatabase();
         String query = "SELECT * FROM Amigos where _cod_usuario=?";
         Cursor retornoBase = baseDados.rawQuery(query, new String[] {String.valueOf(u.getId())});
-
         if(retornoBase.moveToFirst()) {
             do {
                 //Recuperando valores e add a lista.
@@ -106,6 +106,8 @@ public class AmigosDAO implements modeloDAO{
             } while (retornoBase.moveToNext());
         }
         baseDados.close();
+
+        Log.d("BANCO", "registros: "+list.size());
         return list;
     }
 }

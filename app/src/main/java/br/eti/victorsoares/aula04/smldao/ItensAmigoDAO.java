@@ -1,15 +1,17 @@
 package br.eti.victorsoares.aula04.smldao;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import java.util.ArrayList;
 
+import br.eti.victorsoares.aula04.Model.Amigo;
 import br.eti.victorsoares.aula04.Model.Categoria;
 import br.eti.victorsoares.aula04.Model.ItensAmigos;
-import br.eti.victorsoares.aula04.daos.AcessoDB;
+import br.eti.victorsoares.aula04.Model.Usuario;
 
 /**
  * Created by samuel on 10/06/15.
@@ -21,9 +23,13 @@ public class ItensAmigoDAO implements modeloDAO {
             "_cod_amigo INTEGER,"+
             "descricao_item TEXT,"+
             "nome_item TEXT,"+
-            "FOREIGN KEY (_cod_amigo) REFERENCES Amigos(_cod_amigo);";
+            "FOREIGN KEY (_cod_amigo) REFERENCES Amigos(_cod_amigo));";
 
     private AcessoDB acessoDB;
+
+    public ItensAmigoDAO(Context context) {
+        acessoDB = new AcessoDB(context);
+    }
 
     @Override
     public void insert(Object obj) {
@@ -37,6 +43,7 @@ public class ItensAmigoDAO implements modeloDAO {
         baseDados.insert("ItensAmigos",null,valoresInserir);
         baseDados.close();
     }
+
 
     @Override
     public void update(Object obj) {

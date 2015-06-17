@@ -3,7 +3,7 @@ package br.eti.victorsoares.aula04.Model;
 /**
  * Created by samuel on 16/06/15.
  */
-public class ItensAmigos {
+public class ItensAmigos{
 
     private long cod_item;
     private long cod_amigo;

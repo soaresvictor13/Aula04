@@ -21,6 +21,7 @@ public class AmigoController {
         this.adao = new AmigosDAO(context);
     }
 
+    @Deprecated
     public void insert(Amigo amigo){
         this.adao.insert(amigo);
     }

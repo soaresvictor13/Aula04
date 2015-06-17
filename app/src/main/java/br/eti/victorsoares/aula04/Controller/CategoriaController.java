@@ -3,7 +3,7 @@ package br.eti.victorsoares.aula04.Controller;
 import android.content.Context;
 import java.util.List;
 import br.eti.victorsoares.aula04.Model.Categoria;
-import br.eti.victorsoares.aula04.daos.CategoriaDAO;
+import br.eti.victorsoares.aula04.smldao.CategoriaDAO;
 
 /**
  * Created by vsoares on 01/06/15.
@@ -23,7 +23,7 @@ public class CategoriaController {
     }
 
     public List getList(){
-        return categoriaDAO.getList();
+        return categoriaDAO.get();
     }
 
     public void apagar(Categoria categoria){
