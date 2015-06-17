@@ -10,7 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import br.eti.victorsoares.aula04.Controller.AmigoController;
 import br.eti.victorsoares.aula04.Controller.UsuarioController;
+import br.eti.victorsoares.aula04.Model.Amigo;
 import br.eti.victorsoares.aula04.Model.Pessoa;
 import br.eti.victorsoares.aula04.Model.Usuario;
 import br.eti.victorsoares.aula04.R;
@@ -33,12 +35,12 @@ public class NovoAmigoActivity extends Activity{
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Pessoa p = new Pessoa();
+                Amigo p = new Amigo();
                 p.setNome(nome.getText().toString());
-                p.setEmail(email.getText().toString());
+                p.setImagem(email.getText().toString());
 
-                UsuarioController controller = new UsuarioController(view.getContext());
-                controller.addFriend(usuario, p);
+                AmigoController amigoController = new AmigoController(view.getContext());
+                amigoController.insert(p);
                 Toast.makeText(view.getContext(), "Novo amigo salvo com sucesso!", Toast.LENGTH_SHORT).show();
                 finish();
             }

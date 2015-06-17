@@ -71,6 +71,7 @@ public class CadastroItemActivity extends Activity {
                 if(descricao.getText().length() > 0) {
                     Item item = new Item();
                     item.setDescricao(descricao.getText().toString());
+
                     item.setCategoria((Categoria) spinner.getAdapter().getItem(spinner.getSelectedItemPosition()));
 
                     ItemController controller = new ItemController(view.getContext());

@@ -7,10 +7,8 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
-import br.eti.victorsoares.aula04.Model.ItensEmprestadosParaMin;
 import br.eti.victorsoares.aula04.Model.ItensEmprestadosPorMin;
 import br.eti.victorsoares.aula04.Util.Data;
-import br.eti.victorsoares.aula04.daos.AcessoDB;
 
 /**
  * Created by samuel on 09/06/15.

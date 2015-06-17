@@ -19,11 +19,9 @@ public class AmigosDAO implements modeloDAO{
 
     protected static final String SCRIPT_CREATE = "CREATE TABLE Amigos(" +
             "_cod_amigo INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            "_cod_amigo INTEGER, "+
+            "FOREIGN KEY (_cod_usuario) REFERENCES Usuarios(_cod_usuario)," +
             "nome_amigo TEXT," +
-            "img_amigo TEXT," +
-            "FOREIGN KEY (_cod_usuario) REFERENCES Usuarios(_cod_usuario);";
-
+            "img_amigo TEXT";
     private AcessoDB acessoDB;
 
     public AmigosDAO(Context context){
@@ -86,7 +84,7 @@ public class AmigosDAO implements modeloDAO{
         }
         baseDados.close();
         return list;
-
+        
     }
 
     public ArrayList<Object> getAmigos(Usuario u){

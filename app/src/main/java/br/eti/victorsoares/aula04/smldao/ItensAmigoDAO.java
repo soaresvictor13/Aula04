@@ -18,10 +18,9 @@ public class ItensAmigoDAO implements modeloDAO {
 
     protected static final String SCRIPT_CREATE="CREATE TABLE ItensAmigos(" +
             "_cod_item INTEGER PRIMARY KEY AUTOINCREMENT," +
+            "FOREIGN KEY (_cod_amigo) REFERENCES Amigos(_cod_amigo),"+
             "descricao_item TEXT,"+
-            "nome_item TEXT," +
-            "FOREIGN KEY (_cod_amigo) REFERENCES Amigos(_cod_amigo);";
-
+            "nome_item TEXT;";
     private AcessoDB acessoDB;
 
     @Override

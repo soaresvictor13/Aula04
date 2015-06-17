@@ -10,6 +10,7 @@ import br.eti.victorsoares.aula04.Model.Item;
 import br.eti.victorsoares.aula04.Model.Pessoa;
 import br.eti.victorsoares.aula04.Model.Usuario;
 import br.eti.victorsoares.aula04.daos.ItemDAO;
+import br.eti.victorsoares.aula04.smldao.ItensDAO;
 
 /**
  * Created by vsoares on 01/06/15.
@@ -17,11 +18,11 @@ import br.eti.victorsoares.aula04.daos.ItemDAO;
 public class ItemController {
 
     private Context context;
-    private ItemDAO itemDAO;
+    private ItensDAO itemDAO;
 
     public ItemController(Context context) {
         this.context = context;
-        this.itemDAO  = new ItemDAO(context);
+        this.itemDAO  = new ItensDAO(context);
     }
 
     public ArrayList<Item> getList(Amigo amigo){
@@ -32,10 +33,6 @@ public class ItemController {
         return null;
     }
 
-    public List getList(Pessoa pessoa){
-        return itemDAO.getList(pessoa.getId());
-    }
-
     public Item getItem(long id) {
 //        Item item = new Item();
 //        item.setDescricao("teste");
@@ -43,18 +40,22 @@ public class ItemController {
         return itemDAO.getItem(id);
     }
 
-    public void insert(Item item){
-        Item i = new Item();
-    }
-
     public void insert(Item item, Usuario usuario) {
+        itemDAO.insert(item);
     }
 
     public void insert(Item item, Usuario usuario, Amigo amigo) {
 
     }
 
-    public List getItensAmigos(Usuario usuario) {
+    public ArrayList getItensAmigos(Usuario usuario) {
+        return itemDAO.get();
+    }
+    public ArrayList getItensAmigos(Usuario usuario, Amigo amigo) {
+        return new ArrayList<>();
+    }
+
+    public ArrayList<Item> getMeusItens(Usuario usuario) {
         return new ArrayList<>();
     }
 }

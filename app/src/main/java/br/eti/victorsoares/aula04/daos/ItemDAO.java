@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 
 import br.eti.victorsoares.aula04.Model.Item;
-import br.eti.victorsoares.aula04.Model.Pessoa;
+import br.eti.victorsoares.aula04.smldao.AcessoDB;
 
 /**
  * Created by vsoares on 26/05/15.

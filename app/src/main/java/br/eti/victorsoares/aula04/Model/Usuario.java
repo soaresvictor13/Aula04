@@ -1,12 +1,8 @@
 package br.eti.victorsoares.aula04.Model;
 
-import android.content.Context;
-
 import java.io.Serializable;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
-import br.eti.victorsoares.aula04.daos.UsuarioDAO;
 
 /**
  * Created by VictorSoares on 21/05/2015.

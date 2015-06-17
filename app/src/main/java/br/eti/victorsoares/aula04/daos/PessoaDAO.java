@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import br.eti.victorsoares.aula04.Model.Pessoa;
 import br.eti.victorsoares.aula04.Model.Usuario;
+import br.eti.victorsoares.aula04.smldao.AcessoDB;
 
 /**
 * Created by VictorSoares on 21/05/2015.

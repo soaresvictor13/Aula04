@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import br.eti.victorsoares.aula04.Controller.UsuarioController;
 import br.eti.victorsoares.aula04.Model.Usuario;
-import br.eti.victorsoares.aula04.daos.UsuarioDAO;
 import br.eti.victorsoares.aula04.R;
 
 public class CadastroUsuarios extends Activity {
